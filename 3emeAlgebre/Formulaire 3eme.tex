@@ -1,0 +1,198 @@
+\documentclass[a4paper,margin=1cm,fontscale=1]{baposter} % echelle de la police (initial à 0.285)
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\frenchbsetup{StandardLists=true}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xlop}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{palatino}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{multicol}
+\setlength{\columnsep}{5mm} % espace entre les colonnes à l'intérieur des cadres
+\setlength{\columnseprule}{0mm} % largeur du filet entre les colonnes
+\usepackage{pstricks}
+\usepackage{pst-plot}
+\usepackage{pstricks-add}
+
+\newcommand{\Syst}[2]{\left\{\begin{array}{l} #1\\ #2 \end{array}\right.}
+\setitemize{label=\ding{71},leftmargin=5mm,itemsep=0mm,parsep=0mm,topsep=0mm}
+\renewcommand{\baselinestretch}{1.25}
+\newcommand{\mili}[4]{\psgrid[subgriddiv=10, gridlabels=0, gridwidth=0.4pt, subgridwidth=0.4pt,gridcolor=brown!80,subgridcolor=brown!40](#1,#2)(#3,#4)}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1cm}}
+\def\N{{\mathbb N}}
+\def\Z{{\mathbb Z}}
+\def\R{{\mathbb R}}
+\def\C{{\mathbb C}}
+\def\e{{\text{e}}}
+\newcommand{\V}{\overrightarrow} % Vecteurs
+\newcommand{\Repc}{(O;\V{u};\V{v})} % Repère Ouv
+\newcommand{\Coor}[2]{\begin{pmatrix} #1\\#2 \end{pmatrix}} % Coordonnées
+\newcommand{\Ree}{\mathfrak{Re}} % partie réelle
+\newcommand{\Ima}{\mathfrak{Im}} % partie imaginaire
+\newcommand{\Abs}[1]{\left \lvert#1\right \rvert} % module
+
+\graphicspath{{Images/}}
+
+\begin{document}
+
+
+\begin{poster}
+{
+headerborder=open, % Ajout d'une bordure autour de l'entête des boites 
+background=none, 
+%bgColorOne=green, % Couleur de fond pour le dégradé sur le côté gauche de l'affiche
+%bgColorTwo=yellow, % Couleur de fond pour le dégradé sur le côté droit de l'affiche
+colspacing=6mm, % Espace entre les boites
+columns=6,
+borderColor=black, % Couleur des bordures de cadres
+headerColorOne=white, % Couleur de fond pour l'en-tête dans les boites (côté gauche)
+headerColorTwo=gray!50, % Couleur de fond pour l'en-tête dans les boites (côté droit)
+headerFontColor=black, % Couleur du texte de l'en-tête des boites
+boxColorOne=white, % Couleur de fond des boites
+textborder=roundedleft, % Format des bordures : none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright, faded
+eyecatcher=true, % false pour supprimer le logo de gauche
+headerheight=0.075\textheight, % Hauteur de l'en-tête
+headershape=roundedright, % Format des bordures de l'entête : rectangle, small-rounded, roundedright, roundedleft or rounded
+headerfont=\textsc\bf,% Police de l'en-tête : large, bold et sans serif %\textsc, 
+textfont={\setlength{\parindent}{0em}}, % Indentation
+linewidth=1pt % Largeur du filet des boites boxes
+}
+%----------------------------------------------------------------------
+%	EN-TÊTE
+%----------------------------------------------------------------------
+{\mbox{}\hspace*{0.5cm}%\includegraphics[height=2cm]{Complexe.eps}
+} %gauche
+{\mbox{}{\Huge Formulaire brevet}}{\footnotesize 3eme} %titre
+{%\includegraphics[height=2cm]{Logo_Nath.eps}\hspace*{0.5cm}\mbox{}
+}%droite
+% 
+
+%---------------------
+% Fiche
+%---------------------
+
+\headerbox{\bf Calcul littéral: notations} %%%%%%%
+{name=cl_n,column=1,span=4}
+{
+%\begin{dotlist}
+{$1x$ se note $x$}
+\hfill{$-1x$ se note $-x$}
+\hfill{$x$x$x$ se note $x^{2}$}
+\hfill{$0x = 0$}
+
+}
+
+\headerbox{\bf Calcul littéral: développer et factoriser} %%%%%%%
+{name=cl_df,column=0,span=4,below=cl_n}
+{
+\underline{\bf Développer}
+\begin{itemize}
+	\item \textbf{Développer}, c'est transformer un \underline{produit} en une \underline{somme} algébrique
+	\item On peut utiliser les règles de la \textbf{distributivité}:
+	\\$a(b+c) = ab + ac$
+	\\$a(b-c) = ab - ac$
+	\\$(a+b)(c+d)= ac + ad + bc + bd$
+\end{itemize}
+\underline{\bf Factoriser}
+\begin{itemize}
+	\item \textbf{Factoriser}, c'est transformer une \underline{somme} algébrique en un \underline{produit}.
+	\item On peut utiliser les règles de distributivité:
+	\\ $ab + ac =a(b+c)$
+	\\ $ab - ac = a(b-c)$
+\end{itemize}
+} 
+
+\headerbox{\bf Calcul littéral: équations} %%%%%%%
+{name=cl_e,column=4,span=2,below=cl_n,bottomaligned=cl_df}
+{
+\begin{itemize}
+   \item On peut effectuer la même opération sur les deux membres d'une équation
+\end{itemize}
+Exemple:
+\\ $3x + 5 = -7$ {donne succesivement:}
+\\ $(3x + 5) -5 = (-7) -5$ (on soustrait 5 dans chaque membre),soit $3x = -12$
+\\ $ (3x)\div 3 = (-12) \div 3$ (on divise par 3 dans chaque membre), soit $x=-4$.
+\\ \textbf{La solution de l'équation est $-4$.} 
+
+}
+
+\headerbox{\bf Puissances} %%%%%%%
+{name=pow,column=0,span=6, below=cl_df}
+{
+\begin{itemize}
+  \item Soit n un entier, $n>1$ et $a$ un nombre:\\
+		$a^n = \underbrace{a \times  a \times  a \times  ... \times  a} _\textrm{$n$ facteurs $a$}$
+		\hfill et si $a\neq 0$ , $ a^{-n} = \frac{1}{a^n}$\hfill {}
+		\\ $a^1 = a$
+		\hfill et, si $a \neq 0, a^0 = 1 $
+		\hfill $a^{-1} = \frac{1}{a}$: c'est l'inverse de $a$
+	\item Soit a un nombre, b un nombre $b \neq 0$, $n$ et $m$ deux entiers relatifs:
+		\\ $a^n \times  a^m = a^{n+m}$
+		\hfill $\frac{b^m}{b^n} = b^{m-n}$
+		\hfill $(a^m)^n = a^{m\times n}$
+		\hfill $ a^m\times b^m = (ab)^m$
+		\hfill $ \frac{a^m}{b^m} = (\frac{a}{b})^m$
+\end{itemize}
+}
+
+\headerbox{\bf Notation scientifique} 
+{name=sci,column=0,span=3,below=pow}
+{
+On appelle notation scientifique d'un nombre strictement positif, une notation de la forme $a\times 10^n$, avec $1 \leq a < 10$
+}
+
+\headerbox{\bf Démonstration} %%%%%%%
+{name=demo,column=3,span=3,below=pow}
+{
+Une \textbf{démonstration} consiste à expliquer de manière rigoureuse pourquoi un résultat est vrai. La démonstration comporte trois parties:
+	\\1) Le théorème, la définition ou la propriété de la forme:
+	\\Si \textbf{conditions} alors \textbf{conclusion}
+	\\2) Vous devez recopier les données de votre exercice qui vérifient les conditions
+	\\3) Vous pouvez donc appliquer la conclusion à votre problème
+}
+
+\headerbox{\bf Fractions} %%%%%%%
+{name=frac,column=0,span=3,below=sci}
+{
+Pour additionner ou soustraires des fractions, on commence par les réduire au \textbf{\underline{même dénominateur}}.
+\begin{itemize}
+	\item \textbf {Somme}
+	\\ $\frac{a}{b} + \frac{c}{b} = \frac{a+c}{b}$
+	\item \textbf {Différence}
+	\\ $\frac{a}{b} - \frac{c}{b} = \frac{a-c}{b}$
+	\item \textbf {Simplification}
+	\\ $\frac{a\times k}{b\times k} = \frac{a}{b}$
+	\item \textbf {Multiplication}
+	\\ $\frac{a}{b} \times  \frac{c}{d} = \frac{a\times c}{b\times d}$
+	
+	\item \textbf {Division}
+	\\ $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \times \frac{d}{c}$
+	\\ L'inverse de $\frac{c}{d}$ est $\frac{d}{c}$
+\end{itemize}
+}
+
+\headerbox{\bf Pourcentages} %%%%%%%
+{name=per,column=3,span=3,below=demo}
+{
+\begin{itemize}
+	\item \textbf{Augmenter de $a$\%} une valeur revient à la multiplier par $(1 + \frac{a}{100})$
+	\item \textbf{Diminuer de $a$\%} une valeur revient à la multiplier par $(1 - \frac{a}{100})$
+\end{itemize}
+}
+
+
+\end{poster}
+\end{document}
+
+
+
+
